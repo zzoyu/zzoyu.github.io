@@ -34,4 +34,4 @@ jobs:
           # Path to the directory where the static assets are located.
           build_dir: dist
           # Specify GITHUB_TOKEN in your repository.
-          github_token: ${{ secrets.ACCESS_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
