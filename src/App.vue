@@ -3,7 +3,7 @@ import { onMounted, ref, watchEffect } from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
 import TheWelcome from "./components/TheWelcome.vue";
 
-import * as THREE from "THREE";
+import * as THREE from "three";
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
