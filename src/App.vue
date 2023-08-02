@@ -3,7 +3,6 @@ import { onMounted, ref, watchEffect } from "vue";
 import BaseSection from "./components/BaseSection.vue";
 import TheNavigation from "./components/TheNavigation.vue";
 import RendererContainer from "./components/RendererContainer.vue";
-import SectionWrapper from "./components/SectionWrapper.vue";
 
 const showHeaderName = ref(false);
 const showHeaderDescription = ref(false);
