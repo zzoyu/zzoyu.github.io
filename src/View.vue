@@ -2,16 +2,20 @@
 await document.fonts.load("1rem Pretendard-Regular");
 console.log("fonts ready");
 
-import { onMounted, ref, watchEffect } from "vue";
+import { defineAsyncComponent, onMounted, ref, watchEffect } from "vue";
 import BaseSection from "@/components/BaseSection.vue";
 import TheNavigation from "@/components/TheNavigation.vue";
-import TheRendererContainer from "@/components/TheRendererContainer.vue";
+
 import TheLightToggle from "@/components/TheLightToggle.vue";
 
 import { useDarkMode } from "@/composables/useDarkMode";
 
 import Main from "@/components/sections/Main.vue";
 import About from "@/components/sections/About.vue";
+
+const TheRendererContainer = defineAsyncComponent(
+  () => import("@/components/TheRendererContainer.vue")
+);
 
 const sectionInfo = [
   {
