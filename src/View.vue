@@ -1,9 +1,14 @@
 <script setup lang="ts">
+await document.fonts.load("1rem Pretendard-Regular");
+console.log("fonts ready");
+
 import { onMounted, ref, watchEffect } from "vue";
 import BaseSection from "@/components/BaseSection.vue";
 import TheNavigation from "@/components/TheNavigation.vue";
 import TheRendererContainer from "@/components/TheRendererContainer.vue";
 import TheLightToggle from "@/components/TheLightToggle.vue";
+
+import { useDarkMode } from "@/composables/useDarkMode";
 
 import Main from "@/components/sections/Main.vue";
 import About from "@/components/sections/About.vue";
@@ -28,21 +33,7 @@ const moveToNextSection = () => {
   sections.value?.[currentIndex.value + 1].focus();
 };
 
-const isDarkMode = ref(
-  window.matchMedia("(prefers-color-scheme: dark)").matches
-);
-
-watchEffect(() => {
-  if (isDarkMode.value) {
-    document.documentElement.classList.add("dark");
-  } else {
-    document.documentElement.classList.remove("dark");
-  }
-});
-
-await document.fonts.ready;
-// add a delay for 1s to show the loading animation
-await new Promise((resolve) => setTimeout(resolve, 10000));
+const isDarkMode = useDarkMode().isDarkMode;
 </script>
 
 <template>
