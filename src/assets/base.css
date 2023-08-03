@@ -10,6 +10,13 @@
   font-style: normal;
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    --color-text: #fff;
+    --color-background: #000;
+  }
+}
+
 *,
 *::before,
 *::after {
