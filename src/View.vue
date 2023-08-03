@@ -38,6 +38,7 @@ const currentIndex = ref(0);
 const isScrolling = ref(false);
 const endScrolling = () => {
   isScrolling.value = false;
+  window.removeEventListener("scrollend", endScrolling);
 };
 
 const moveToSection = (index = currentIndex.value + 1) => {
