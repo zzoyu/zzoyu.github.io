@@ -3,11 +3,15 @@ const props = defineProps<{
   menuLabels: string[];
   currentIndex: number;
 }>();
+const emit = defineEmits<{
+  "update:currentIndex": [number];
+}>();
 </script>
 
 <template>
   <nav class="text-lg">
     <li
+      @click="$emit('update:currentIndex', i)"
       v-for="(menu, i) in menuLabels"
       :key="i"
       class="transition-all duration-500 ease-in-out"
@@ -20,7 +24,6 @@ const props = defineProps<{
 
 <style scoped>
 @tailwind base;
-@tailwind components;
 
 .active {
   @apply text-2xl;

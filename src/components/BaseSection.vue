@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
 
+const props = defineProps<{
+  scrollable: boolean;
+}>();
+
 defineExpose({
   section: ref<HTMLElement | null>(null),
   focus: () => {
@@ -19,7 +23,7 @@ onMounted(() => {
   new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && props.scrollable) {
           emit("enter");
           section.value!.scrollIntoView({ behavior: "smooth", block: "start" });
           // console.log("enter");

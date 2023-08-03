@@ -2,7 +2,7 @@
 await document.fonts.load("1rem Pretendard-Regular");
 console.log("fonts ready");
 
-import { defineAsyncComponent, onMounted, ref, watchEffect } from "vue";
+import { defineAsyncComponent, ref } from "vue";
 import BaseSection from "@/components/BaseSection.vue";
 import TheNavigation from "@/components/TheNavigation.vue";
 
@@ -12,6 +12,7 @@ import { useDarkMode } from "@/composables/useDarkMode";
 
 import Main from "@/components/sections/Main.vue";
 import About from "@/components/sections/About.vue";
+import Contact from "@/components/sections/Contact.vue";
 
 const TheRendererContainer = defineAsyncComponent(
   () => import("@/components/TheRendererContainer.vue")
@@ -26,15 +27,26 @@ const sectionInfo = [
     name: "About",
     component: About,
   },
+  {
+    name: "Contact",
+    component: Contact,
+  },
 ];
 
 const sections = ref<InstanceType<typeof BaseSection>[] | null>(null);
 const currentIndex = ref(0);
+const isScrolling = ref(false);
+const endScrolling = () => {
+  isScrolling.value = false;
+};
 
-const moveToNextSection = () => {
-  if (sections.value === null || currentIndex.value === sectionInfo.length - 1)
-    return;
-  sections.value?.[currentIndex.value + 1].focus();
+const moveToSection = (index = currentIndex.value + 1) => {
+  if (sections.value === null || index >= sectionInfo.length) return;
+  if (isScrolling.value) window.removeEventListener("scrollend", endScrolling);
+  currentIndex.value = index;
+  isScrolling.value = true;
+  sections.value?.[index].focus();
+  window.addEventListener("scrollend", endScrolling);
 };
 
 const isDarkMode = useDarkMode().isDarkMode;
@@ -47,11 +59,10 @@ const isDarkMode = useDarkMode().isDarkMode;
     class="fixed bottom-10 left-10"
     :menuLabels="sectionInfo.map((section) => section.name)"
     :currentIndex="currentIndex"
+    @update:currentIndex="(index) => moveToSection(index)"
   />
   <div class="fixed right-10 bottom-10 flex flex-col justify-end items-center">
-    <button class="text-2xl animate-bounce" @click="moveToNextSection()">
-      ↓
-    </button>
+    <button class="text-2xl animate-bounce" @click="moveToSection()">↓</button>
   </div>
 
   <BaseSection
@@ -59,6 +70,7 @@ const isDarkMode = useDarkMode().isDarkMode;
     :key="index"
     @enter="currentIndex = index"
     ref="sections"
+    :scrollable="!isScrolling"
   >
     <component :is="section.component" />
   </BaseSection>
