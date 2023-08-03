@@ -10,13 +10,6 @@
   font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    --color-text: #fff;
-    --color-background: #000;
-  }
-}
-
 *,
 *::before,
 *::after {
@@ -28,11 +21,12 @@
 body {
   min-height: 100vh;
   height: 100%;
-  color: var(--color-text);
-  background: var(--color-background);
-  transition:
-    color 0.5s,
-    background-color 0.5s;
+
+  @apply bg-gray-100 dark:bg-zinc-900;
+  @apply text-zinc-900 dark:text-white;
+
+  @apply antialiased transition-colors duration-200 ease-linear;
+
   line-height: 1.6;
   font-family: "Pretendard-Regular", "Segoe UI", Roboto, Oxygen, Ubuntu,
     Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;

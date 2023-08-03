@@ -47,5 +47,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="container" class="fixed w-full h-full left-0 top-0"></div>
+  <div
+    ref="container"
+    class="fixed w-full h-full left-0 top-0 pointer-events-none"
+  ></div>
 </template>

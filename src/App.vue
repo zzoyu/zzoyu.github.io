@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref, watchEffect } from "vue";
-import BaseSection from "./components/BaseSection.vue";
-import TheNavigation from "./components/TheNavigation.vue";
-import RendererContainer from "./components/RendererContainer.vue";
+import BaseSection from "@/components/BaseSection.vue";
+import TheNavigation from "@/components/TheNavigation.vue";
+import TheRendererContainer from "@/components/TheRendererContainer.vue";
+import TheLightToggle from "@/components/TheLightToggle.vue";
 
 const showHeaderName = ref(false);
 const showHeaderDescription = ref(false);
@@ -12,19 +13,30 @@ onMounted(() => {
 });
 
 const currentIndex = ref(0);
+
+const isDarkMode = ref(
+  window.matchMedia("(prefers-color-scheme: dark)").matches
+);
+
+watchEffect(() => {
+  if (isDarkMode.value) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+});
 </script>
 
 <template>
-  <RendererContainer />
+  <TheRendererContainer />
+  <TheLightToggle v-model="isDarkMode" />
   <TheNavigation
     class="fixed bottom-10 left-10"
     :menuLabels="['Main', 'About', 'Projects', 'Contact']"
     :currentIndex="currentIndex"
   />
-  <div
-    class="fixed right-10 bottom-10 h-full flex flex-col justify-end items-center"
-  >
-    <div class="text-black text-2xl animate-bounce">↓</div>
+  <div class="fixed right-10 bottom-10 flex flex-col justify-end items-center">
+    <div class="text-2xl animate-bounce">↓</div>
   </div>
 
   <BaseSection @enter="currentIndex = 0">
@@ -47,8 +59,8 @@ const currentIndex = ref(0);
     </div>
   </BaseSection>
   <BaseSection @enter="currentIndex = 1"> About </BaseSection>
-  <BaseSection @enter="currentIndex = 1"> Project </BaseSection>
-  <BaseSection @enter="currentIndex = 1"> Contact </BaseSection>
+  <BaseSection @enter="currentIndex = 2"> Project </BaseSection>
+  <BaseSection @enter="currentIndex = 3"> Contact </BaseSection>
 </template>
 
 <style scoped>

@@ -23,6 +23,6 @@ const props = defineProps<{
 @tailwind components;
 
 .active {
-  @apply text-xl line-through;
+  @apply text-2xl;
 }
 </style>
