@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { scrollend } from "scrollyfills";
+scrollend;
+
 await document.fonts.load("1rem Pretendard-Regular");
 console.log("fonts ready");
 
@@ -39,6 +42,7 @@ const isScrolling = ref(false);
 const endScrolling = () => {
   isScrolling.value = false;
   window.removeEventListener("scrollend", endScrolling);
+  console.log("end");
 };
 
 const moveToSection = (index = currentIndex.value + 1) => {

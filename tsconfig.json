@@ -1,5 +1,6 @@
 {
   "files": [],
+  "include": ["scrollyfills.d.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"
