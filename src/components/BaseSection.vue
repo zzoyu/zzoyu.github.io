@@ -3,6 +3,9 @@ import { onMounted, ref } from "vue";
 
 defineExpose({
   section: ref<HTMLElement | null>(null),
+  focus: () => {
+    section.value?.scrollIntoView({ behavior: "smooth", block: "start" });
+  },
 });
 
 const emit = defineEmits<{
