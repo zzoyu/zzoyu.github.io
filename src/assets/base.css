@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  section > div {
+    @apply flex flex-col gap-10 grow max-w-screen-md mx-auto;
+  }
+
   h1 {
     @apply text-4xl max-sm:text-2xl;
   }

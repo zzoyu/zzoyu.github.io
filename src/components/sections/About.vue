@@ -1,25 +1,28 @@
 <template>
   <div class="flex flex-col gap-10 grow">
     <h1>About me</h1>
+    <h2>조유진 <mark>1996.11.02</mark></h2>
     <ul>
-      <h2>조유진 <mark>1996.11.02</mark></h2>
       <li>(구)임베디드, (현)프론트엔드 개발자</li>
       <li>
-        한국방송통신대학교 컴퓨터과학과 학사
+        한국방송통신대학교 컴퓨터과학과 졸업
         <mark>3.3/4.5</mark>
       </li>
+    </ul>
+    <ul>
       <li>
         저는 유저와 직접 상호작용하는 모든 분야를 좋아합니다. 취미로는 게임
         개발을 배우고 있습니다.
       </li>
 
       <li>
-        Vue.js<mark>3</mark>, Nuxt.js<mark>3</mark> 위주의 프로젝트를 다수
-        수행하였습니다.
+        업무에서는 Vue.js<mark>3</mark>, Nuxt.js<mark>3</mark> 위주의 프로젝트를
+        다수 수행하였습니다.
       </li>
       <li>TypeScript를 주로 사용하고 있습니다.</li>
       <li>
-        현재는 쇼핑몰 솔루션 개발팀에서 신규 프로젝트를 작업하고 있습니다.
+        현재는 이커머스 플랫폼 회사의 쇼핑몰 솔루션 개발팀에서 신규 프로젝트를
+        작업하고 있습니다.
       </li>
     </ul>
 
@@ -65,6 +68,16 @@
           <li>Docker</li>
           <li>Storybook</li>
           <li>TailwindCSS</li>
+        </ul>
+      </li>
+
+      <li>
+        <h3>그 외 관심사🧐</h3>
+        <ul class="stack">
+          <li>Three.js</li>
+          <li>Phaser.js</li>
+          <li>Arduino</li>
+          <li>Raspberry Pi</li>
         </ul>
       </li>
     </ul>

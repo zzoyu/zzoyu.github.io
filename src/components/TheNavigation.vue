@@ -14,7 +14,7 @@ const emit = defineEmits<{
       @click="$emit('update:currentIndex', i)"
       v-for="(menu, i) in menuLabels"
       :key="i"
-      class="transition-all duration-500 ease-in-out"
+      class="transition-all duration-500 ease-in-out cursor-pointer"
       :class="{ active: currentIndex === i }"
     >
       {{ menu }}

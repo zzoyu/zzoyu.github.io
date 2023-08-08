@@ -15,6 +15,7 @@ import { useDarkMode } from "@/composables/useDarkMode";
 
 import Main from "@/components/sections/Main.vue";
 import About from "@/components/sections/About.vue";
+import Projects from "@/components/sections/Projects.vue";
 import Contact from "@/components/sections/Contact.vue";
 
 const TheRendererContainer = defineAsyncComponent(
@@ -29,6 +30,10 @@ const sectionInfo = [
   {
     name: "About",
     component: About,
+  },
+  {
+    name: "Projects",
+    component: Projects,
   },
   {
     name: "Contact",

@@ -9,6 +9,8 @@ import {
   MeshBasicMaterial,
 } from "three";
 
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+
 const scene = new Scene();
 const camera = new PerspectiveCamera(
   75,
@@ -28,6 +30,23 @@ const cube = new Mesh(geometry, material);
 scene.add(cube);
 
 camera.position.z = 5;
+
+const loader = new GLTFLoader();
+const test = await loader.load(
+  "Orbiter_Space_Shuttle_OV-103_Discovery-150k-4096.gltf",
+  (gltf) => {
+    scene.add(gltf.scene);
+    gltf.scene;
+    gltf.scenes;
+    gltf.cameras;
+    gltf.asset;
+
+    gltf.scene.rotation.x = 0.5;
+    gltf.scene.rotation.y = 0.5;
+    gltf.scene.rotation.z = 1.5;
+    gltf.scene.scale.set(0.1, 0.1, 0.1);
+  }
+);
 
 const animate = () => {
   requestAnimationFrame(animate);
