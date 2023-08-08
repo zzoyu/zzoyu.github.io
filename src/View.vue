@@ -5,7 +5,7 @@ scrollend;
 await document.fonts.load("1rem Pretendard-Regular");
 console.log("fonts ready");
 
-import { defineAsyncComponent, ref } from "vue";
+import { defineAsyncComponent, onMounted, ref } from "vue";
 import BaseSection from "@/components/BaseSection.vue";
 import TheNavigation from "@/components/TheNavigation.vue";
 
@@ -55,6 +55,12 @@ const moveToSection = (index = currentIndex.value + 1) => {
 };
 
 const isDarkMode = useDarkMode().isDarkMode;
+
+onMounted(() => {
+  window.onresize = () => {
+    sections.value?.[currentIndex.value].focus();
+  };
+});
 </script>
 
 <template>

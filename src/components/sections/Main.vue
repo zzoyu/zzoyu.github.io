@@ -15,12 +15,10 @@ onMounted(() => {
         name="popup"
         @after-enter="() => (showHeaderDescription = true)"
       >
-        <h1 v-show="showHeaderName" class="text-4xl max-sm:text-2xl">조유진</h1>
+        <h1 v-show="showHeaderName">조유진</h1>
       </Transition>
       <Transition name="fade">
-        <h2 v-show="showHeaderDescription" class="text-2xl max-sm:text-xl">
-          Frontend Developer, etc
-        </h2>
+        <h2 v-show="showHeaderDescription">Frontend Developer, etc</h2>
       </Transition>
     </div>
   </div>
