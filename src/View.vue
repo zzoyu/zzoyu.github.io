@@ -85,15 +85,17 @@ onMounted(() => {
     <button class="text-2xl animate-bounce" @click="moveToSection()">↓</button>
   </div>
 
-  <BaseSection
-    v-for="(section, index) in sectionInfo"
-    :key="index"
-    @enter="currentIndex = index"
-    ref="sections"
-    :scrollable="!isScrolling"
-  >
-    <component :is="section.component" />
-  </BaseSection>
+  <div class="grid gap-8">
+    <BaseSection
+      v-for="(section, index) in sectionInfo"
+      :key="index"
+      @enter="currentIndex = index"
+      ref="sections"
+      :scrollable="!isScrolling"
+    >
+      <component :is="section.component" />
+    </BaseSection>
+  </div>
 </template>
 
 <style scoped>

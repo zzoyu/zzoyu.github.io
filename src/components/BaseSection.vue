@@ -25,7 +25,7 @@ onMounted(() => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && props.scrollable) {
           emit("enter");
-          section.value!.scrollIntoView({ behavior: "smooth", block: "start" });
+          section.value!.scrollIntoView({ behavior: "smooth" });
           // console.log("enter");
         } else {
           emit("leave");

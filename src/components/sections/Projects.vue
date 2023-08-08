@@ -1,6 +1,7 @@
 <template>
   <div class="">
     <h1>Projects</h1>
+    <h2>업무 프로젝트</h2>
     <ul class="list-disc flex flex-col gap-2">
       <li>
         쇼핑몰 솔루션 디자인 빌더 FrontEnd (진행) <mark>Next 13</mark>
@@ -49,6 +50,26 @@
         <ul>
           <li>라우팅 체계 및 미들웨어 작성</li>
           <li>레이아웃 구현</li>
+        </ul>
+      </li>
+    </ul>
+    <h2>개인 및 토이 프로젝트</h2>
+    <ul class="list-disc flex flex-col gap-2">
+      <li>
+        픽셀 에디터 <mark>Vue 3</mark>
+        <ul>
+          <li>Canvas 기반 그림판</li>
+          <li>레트로 풍 픽셀 아트를 그리기 위한 도구</li>
+          <li>색상 팔레트 기능 제공</li>
+          <li>연필, 직선, 직사각형, 원, 채우기 기능</li>
+          <li>레이어 기능 지원(우선순위 변경, 가시성 변경, 삭제, 잠금)</li>
+        </ul>
+      </li>
+      <li>
+        비트 메이커 <mark>Vue 3</mark>
+        <ul>
+          <li>WebAudio API 기반 간단한 작곡 프로그램</li>
+          <li>공유 기능, 입력 녹화 기능 등</li>
         </ul>
       </li>
     </ul>
