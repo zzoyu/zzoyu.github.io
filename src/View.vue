@@ -26,18 +26,22 @@ const sectionInfo = [
   {
     name: "Main",
     component: Main,
+    sceneState: 0,
   },
   {
     name: "About",
     component: About,
+    sceneState: 1,
   },
   {
     name: "Projects",
     component: Projects,
+    sceneState: 1,
   },
   {
     name: "Contact",
     component: Contact,
+    sceneState: 0,
   },
 ];
 
@@ -69,7 +73,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <TheRendererContainer />
+  <TheRendererContainer :sceneState="sectionInfo[currentIndex].sceneState" />
   <TheLightToggle v-model="isDarkMode" />
   <TheNavigation
     class="fixed bottom-10 left-10"

@@ -7,7 +7,7 @@
         <ul></ul>
       </li>
       <li>
-        쇼핑몰 솔루션 백오피스 FrontEnd (중단) <mark>Nuxt 3</mark>
+        쇼핑몰 솔루션 백오피스 FrontEnd <mark>Nuxt 3</mark>
         <ul>
           <li>SSR 어드민 페이지</li>
           <li>분리된 Storybook 프로젝트를 사용한 아토믹 디자인 시스템 구축</li>
