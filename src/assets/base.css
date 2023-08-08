@@ -18,6 +18,10 @@
   mark {
     @apply rounded bg-green-300 px-1 text-sm;
   }
+
+  ul.stack {
+    @apply w-full grid grid-flow-col-dense max-sm:grid-flow-row-dense place-content-start gap-x-4 gap-y-0 auto-cols-auto max-sm:grid-cols-2;
+  }
 }
 
 *,

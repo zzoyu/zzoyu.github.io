@@ -26,7 +26,7 @@
     <ul class="flex flex-col gap-4">
       <li>
         <h3>FrontEnd</h3>
-        <ul class="grid grid-flow-col gap-4">
+        <ul class="stack">
           <li>Vue.js <mark>best</mark></li>
           <li>Nuxt.js <mark>best</mark></li>
           <li>React.js</li>
@@ -37,14 +37,15 @@
 
       <li>
         <h3>BackEnd</h3>
-        <ul class="grid grid-flow-col gap-4">
+        <ul class="stack">
           <li>Express.js</li>
+          <li>PHP</li>
         </ul>
       </li>
 
       <li>
         <h3>Language</h3>
-        <ul class="grid grid-flow-col gap-4">
+        <ul class="stack">
           <li>JavaScript <mark>best</mark></li>
           <li>TypeScript <mark>best</mark></li>
           <li>Python</li>
@@ -56,7 +57,7 @@
 
       <li>
         <h3>Etc.</h3>
-        <ul class="grid grid-flow-col gap-4">
+        <ul class="stack">
           <li>Git</li>
           <li>Github(+Action)</li>
           <li>Gitlab(+Workflow)</li>
