@@ -14,7 +14,7 @@
       </li>
 
       <li>
-        Vue.js<mark>3</mark>, Nuxt.js<mark>3</mark> 위주의 프로젝트를 많이
+        Vue.js<mark>3</mark>, Nuxt.js<mark>3</mark> 위주의 프로젝트를 다수
         수행하였습니다.
       </li>
       <li>TypeScript를 주로 사용하고 있습니다.</li>
