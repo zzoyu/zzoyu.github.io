@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-10 max-w-full">
+  <div class="flex flex-col gap-10 grow">
     <h1>About me</h1>
     <ul>
       <h2>조유진 <mark>1996.11.02</mark></h2>

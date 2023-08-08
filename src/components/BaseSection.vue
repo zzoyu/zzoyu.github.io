@@ -34,7 +34,7 @@ onMounted(() => {
       });
     },
     {
-      threshold: 0.3,
+      threshold: 0.4,
     }
   ).observe(section.value!);
 });
@@ -43,7 +43,7 @@ onMounted(() => {
 <template>
   <section
     ref="section"
-    class="w-full h-screen left-0 top-0 p-10 flex justify-between"
+    class="w-full min-h-screen left-0 top-0 p-10 flex justify-between"
   >
     <slot></slot>
   </section>
