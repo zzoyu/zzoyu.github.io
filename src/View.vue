@@ -78,7 +78,7 @@ provide("currentIndex", currentIndex);
   <TheRendererContainer :sceneState="sectionInfo[currentIndex].sceneState" />
   <TheLightToggle v-model="isDarkMode" />
   <TheNavigation
-    class="fixed bottom-10 left-10"
+    class="fixed bottom-10 left-10 z-10 bg-gray-100 dark:bg-zinc-900 bg-opacity-80"
     :menuLabels="sectionInfo.map((section) => section.name)"
     :currentIndex="currentIndex"
     @update:currentIndex="(index) => moveToSection(index)"

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { Project } from "types/Project";
 import ProjectItems from "@/components/ProjectItems.vue";
 
 const projectsWork: Project[] = [
@@ -110,3 +109,4 @@ const projectsPersonal: Project[] = [
 </template>
 
 <style scoped></style>
+@/types/Project

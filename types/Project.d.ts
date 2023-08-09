@@ -1,4 +1,4 @@
-export interface Project {
+declare interface Project {
   name: string;
   stacks: string[];
   descriptions?: string[];
