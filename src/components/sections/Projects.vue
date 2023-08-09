@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import ProjectItems from "@/components/ProjectItems.vue";
 
+import type { Project } from "@/types/Project";
+
 const projectsWork: Project[] = [
   {
     name: "쇼핑몰 솔루션 디자인 빌더 FrontEnd",

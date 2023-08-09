@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import type { Project } from "@/types/Project";
+
 const props = defineProps<{
   projects: Project[];
 }>();
