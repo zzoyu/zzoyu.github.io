@@ -8,7 +8,7 @@ const props = defineProps<{
 defineExpose({
   section: ref<HTMLElement | null>(null),
   focus: () => {
-    section.value?.scrollIntoView({ behavior: "smooth", block: "start" });
+    section.value?.scrollIntoView({ behavior: "smooth" });
   },
 });
 
@@ -24,6 +24,7 @@ onMounted(() => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && props.scrollable) {
+          console.log(entry.intersectionRatio);
           emit("enter");
           section.value!.scrollIntoView({ behavior: "smooth" });
           // console.log("enter");
@@ -34,7 +35,7 @@ onMounted(() => {
       });
     },
     {
-      threshold: 0.4,
+      threshold: 0.5,
     }
   ).observe(section.value!);
 });
@@ -43,7 +44,7 @@ onMounted(() => {
 <template>
   <section
     ref="section"
-    class="w-full min-h-screen left-0 top-0 p-10 flex justify-between"
+    class="w-full min-h-screen left-0 top-0 p-10 flex justify-between relative"
   >
     <slot></slot>
   </section>

@@ -16,6 +16,7 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 enum SceneState {
   Rolling = 0,
   StopMoving = 1,
+  Hopping = 2,
 }
 const props = defineProps<{
   sceneState: SceneState;
@@ -72,7 +73,7 @@ const animate = () => {
       me.scene.scale.z += (0.3 - me.scene.scale.z) * 0.1;
       break;
     case SceneState.StopMoving:
-      // tween model to center and stop rotating
+      // tween model to corner and stop rotating
       me.scene.rotation.y += (-2 - me.scene.rotation.y) * 0.1;
       me.scene.rotation.x += (0 - me.scene.rotation.x) * 0.1;
 
@@ -83,6 +84,17 @@ const animate = () => {
       me.scene.scale.x += (0.2 - me.scene.scale.x) * 0.1;
       me.scene.scale.y += (0.2 - me.scene.scale.y) * 0.1;
       me.scene.scale.z += (0.2 - me.scene.scale.z) * 0.1;
+      break;
+
+    case SceneState.Hopping:
+      me.scene.rotation.y += (-2 - me.scene.rotation.y) * 0.1;
+      me.scene.rotation.x = Math.sin(Date.now() * 0.002) * 0.1;
+      me.scene.position.y += (-2 - me.scene.position.y) * 0.1;
+      me.scene.position.x += (1 - me.scene.position.x) * 0.1;
+
+      me.scene.scale.x += (0.3 - me.scene.scale.x) * 0.1;
+      me.scene.scale.y += (0.3 - me.scene.scale.y) * 0.1;
+      me.scene.scale.z += (0.3 - me.scene.scale.z) * 0.1;
 
       break;
   }

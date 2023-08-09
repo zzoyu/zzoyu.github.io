@@ -16,10 +16,9 @@
       </li>
 
       <li>
-        업무에서는 Vue.js<mark>3</mark>, Nuxt.js<mark>3</mark> 위주의 프로젝트를
-        다수 수행하였습니다.
+        업무에서는 Vue.js 3, Nuxt.js 3 위주의 프로젝트를 다수 수행하였습니다.
       </li>
-      <li>TypeScript를 주로 사용하고 있습니다.</li>
+      <li>언어는 TypeScript를 주로 사용하고 있습니다.</li>
       <li>
         현재는 이커머스 플랫폼 회사의 쇼핑몰 솔루션 개발팀에서 신규 프로젝트를
         작업하고 있습니다.
@@ -62,8 +61,8 @@
         <h3>Etc.</h3>
         <ul class="stack">
           <li>Git</li>
-          <li>Github(+Action)</li>
-          <li>Gitlab(+Workflow)</li>
+          <li>GitHub(+Action)</li>
+          <li>GitLab(+Workflow)</li>
           <li>Linux</li>
           <li>Docker</li>
           <li>Storybook</li>

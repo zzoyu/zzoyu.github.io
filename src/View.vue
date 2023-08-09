@@ -5,7 +5,7 @@ scrollend;
 await document.fonts.load("1rem Pretendard-Regular");
 console.log("fonts ready");
 
-import { defineAsyncComponent, onMounted, ref } from "vue";
+import { defineAsyncComponent, onMounted, provide, ref } from "vue";
 import BaseSection from "@/components/BaseSection.vue";
 import TheNavigation from "@/components/TheNavigation.vue";
 
@@ -41,7 +41,7 @@ const sectionInfo = [
   {
     name: "Contact",
     component: Contact,
-    sceneState: 0,
+    sceneState: 2,
   },
 ];
 
@@ -70,6 +70,8 @@ onMounted(() => {
     sections.value?.[currentIndex.value].focus();
   };
 });
+
+provide("currentIndex", currentIndex);
 </script>
 
 <template>
