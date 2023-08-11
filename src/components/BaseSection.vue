@@ -19,18 +19,20 @@ const emit = defineEmits<{
 
 const section = ref<HTMLElement | null>(null);
 
-onMounted(() => {
-  new IntersectionObserver(
+const observer = ref<IntersectionObserver>();
+
+const updateObserver = () => {
+  observer.value?.disconnect?.();
+
+  observer.value = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && props.scrollable) {
           console.log(entry.intersectionRatio);
           emit("enter");
           section.value!.scrollIntoView({ behavior: "smooth" });
-          // console.log("enter");
         } else {
           emit("leave");
-          // console.log("leave");
         }
       });
     },
@@ -38,7 +40,12 @@ onMounted(() => {
       rootMargin: `0px 0px -${window.innerHeight / 2}px 0px`,
       threshold: 0,
     }
-  ).observe(section.value!);
+  );
+  observer.value.observe(section.value!);
+};
+onMounted(() => {
+  updateObserver();
+  window.addEventListener("resize", updateObserver);
 });
 </script>
 
