@@ -11,24 +11,25 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div v-if="assets" class="grid mt-2 w-fit grid-flow-col row-auto gap-1">
-    <div
-      v-for="(asset, index) in assets"
-      @click="
-        isOpen = !isOpen;
-        currentIndex = index;
-      "
-      :key="index"
-      class="max-h-48 h-full w-auto p-1 rounded-md bg-gray-200"
-    >
-      <img v-if="asset.match(/(png|jpg|jpeg|gif|webp)$/)" :src="asset" />
-      <video
-        @click="isOpen && $event.stopPropagation()"
-        v-else
-        :src="asset"
-      ></video>
+  <div v-if="assets" class="mt-2 w-fit h-fit">
+    <div class="inline-grid grid-flow-col-dense gap-1">
+      <div
+        v-for="(asset, index) in assets"
+        @click="
+          isOpen = !isOpen;
+          currentIndex = index;
+        "
+        :key="index"
+        class="max-h-48 w-auto p-1 rounded-md bg-gray-200"
+      >
+        <img v-if="asset.match(/(png|jpg|jpeg|gif|webp)$/)" :src="asset" />
+        <video
+          @click="isOpen && $event.stopPropagation()"
+          v-else
+          :src="asset"
+        ></video>
+      </div>
     </div>
-
     <Teleport to="body" v-if="isOpen">
       <div
         class="fixed top-0 left-0 w-full h-full z-50 bg-gray-900 bg-opacity-50 flex justify-center items-center"
