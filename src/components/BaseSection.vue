@@ -35,7 +35,8 @@ onMounted(() => {
       });
     },
     {
-      threshold: 0.5,
+      rootMargin: `0px 0px -${window.innerHeight / 2}px 0px`,
+      threshold: 0,
     }
   ).observe(section.value!);
 });
