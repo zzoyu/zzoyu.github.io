@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Project } from "@/types/Project";
+import ProjectItemGallery from "./ProjectItemGallery.vue";
 
 const props = defineProps<{
   projects: Project[];
@@ -24,6 +25,8 @@ const props = defineProps<{
         <li v-for="(description, index) in project.descriptions" :key="index">
           {{ description }}
         </li>
+
+        <ProjectItemGallery v-if="project.assets" :assets="project.assets" />
       </ul>
     </li>
   </ul>

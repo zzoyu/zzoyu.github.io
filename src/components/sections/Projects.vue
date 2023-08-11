@@ -25,6 +25,13 @@ const projectsWork: Project[] = [
       "카메라 및 마이크 제어",
       "백엔드 API 비동기 통신",
     ],
+    assets: [
+      "/projects/android_streaming_app/송출앱.mp4",
+      "/projects/android_streaming_app/1.jpg",
+      "/projects/android_streaming_app/2.png",
+      "/projects/android_streaming_app/3.png",
+      "/projects/android_streaming_app/4.png",
+    ],
   },
   {
     name: "라이브 커머스 방송 시청 플레이어 FrontEnd",
