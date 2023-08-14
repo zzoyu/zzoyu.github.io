@@ -30,14 +30,17 @@ const updateObserver = () => {
         if (entry.isIntersecting && props.scrollable) {
           console.log(entry.intersectionRatio);
           emit("enter");
-          section.value!.scrollIntoView({ behavior: "smooth" });
+          section.value!.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
         } else {
           emit("leave");
         }
       });
     },
     {
-      rootMargin: `0px 0px -${window.innerHeight / 2}px 0px`,
+      rootMargin: `-${window.innerHeight / 2}px  0px`,
       threshold: 0,
     }
   );
