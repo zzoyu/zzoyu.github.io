@@ -55,7 +55,12 @@ const endScrolling = () => {
 };
 
 const moveToSection = (index = currentIndex.value + 1) => {
-  if (sections.value === null || index >= sectionInfo.length) return;
+  if (
+    sections.value === null ||
+    index >= sectionInfo.length ||
+    index === currentIndex.value
+  )
+    return;
   if (isScrolling.value) window.removeEventListener("scrollend", endScrolling);
   currentIndex.value = index;
   isScrolling.value = true;
@@ -83,7 +88,9 @@ provide("currentIndex", currentIndex);
     :currentIndex="currentIndex"
     @update:currentIndex="(index) => moveToSection(index)"
   />
-  <div class="fixed right-10 bottom-10 flex flex-col justify-end items-center">
+  <div
+    class="fixed right-10 bottom-10 z-10 flex flex-col justify-end items-center"
+  >
     <button class="text-2xl animate-bounce" @click="moveToSection()">↓</button>
   </div>
 
@@ -99,15 +106,3 @@ provide("currentIndex", currentIndex);
     </BaseSection>
   </div>
 </template>
-
-<style scoped>
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: black;
-}
-</style>

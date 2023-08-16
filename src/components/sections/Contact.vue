@@ -16,9 +16,10 @@ const currentIndex = inject("currentIndex");
       </li>
     </ul>
     <h2 class="mt-10">감사합니다.</h2>
+    <a href="#app" class="underline underline-offset-4 mt-10">⬆ 위로가기</a>
   </div>
   <TheConfetti
     v-if="currentIndex === 3"
-    class="absolute w-full h-full left-0 top-0"
+    class="absolute w-full h-full left-0 top-0 pointer-events-none"
   />
 </template>

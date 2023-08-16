@@ -28,8 +28,8 @@ const updateObserver = () => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && props.scrollable) {
-          console.log(entry.intersectionRatio);
           emit("enter");
+          if (entry.boundingClientRect.top < 0) return;
           section.value!.scrollIntoView({
             behavior: "smooth",
             block: "start",
@@ -40,7 +40,7 @@ const updateObserver = () => {
       });
     },
     {
-      rootMargin: `-${window.innerHeight / 2}px  0px`,
+      rootMargin: `0px 0px -${(window.innerHeight / 5) * 2}px 0px`,
       threshold: 0,
     }
   );
