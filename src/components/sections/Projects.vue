@@ -4,16 +4,21 @@ import ProjectItems from "@/components/ProjectItems.vue";
 import type { Project } from "@/types/Project";
 
 const projectsWork: Project[] = [
-  {
-    name: "쇼핑몰 솔루션 디자인 빌더 FrontEnd",
-    stacks: ["Next 13"],
-  },
+  // {
+  // name: "쇼핑몰 솔루션 디자인 빌더 FrontEnd",
+  // stacks: ["Next 13"],
+  // },
   {
     name: "쇼핑몰 솔루션 백오피스 FrontEnd",
     stacks: ["Nuxt 3"],
     descriptions: [
-      "SSR 어드민 페이지",
-      "분리된 Storybook 프로젝트를 사용한 아토믹 디자인 시스템 구축",
+      "SSR 기반 어드민 페이지",
+      "분리된 Storybook 프로젝트를 사용한 디자인 시스템 구축 및 컴포넌트 주도 개발",
+    ],
+    assets: [
+      "/projects/new_makeshop_admin/1.png",
+      "/projects/new_makeshop_admin/2.png",
+      "/projects/new_makeshop_admin/3.png",
     ],
   },
   {
