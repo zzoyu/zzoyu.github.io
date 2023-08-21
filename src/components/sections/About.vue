@@ -1,7 +1,10 @@
 <template>
   <div class="flex flex-col gap-10 grow">
     <h1>About me</h1>
-    <h2>조유진 <mark>1996.11.02</mark></h2>
+    <h2 class="align-bottom">
+      조유진 <mark>1996.11.02</mark>
+      <!-- <a href="https://www.linkedin.com/in/fe-yjcho/"></a> -->
+    </h2>
     <ul>
       <li>(구)임베디드, (현)프론트엔드 개발자</li>
       <li>
@@ -82,3 +85,29 @@
     </ul>
   </div>
 </template>
+
+<style scoped>
+a::after {
+  @apply bg-green-300 underline inline-block rounded-full text-center text-white ml-1 w-5 h-5 align-top;
+  @apply hover:opacity-70;
+  content: "";
+  background-size: 1em;
+  background-repeat: no-repeat;
+  background-position: calc(50% + 0px) center;
+}
+
+a[href*="linkedin"]::after {
+  @apply bg-blue-300;
+  background-image: url("@/assets/link.svg");
+}
+
+a[href*="github.com"]::after {
+  @apply bg-gray-400;
+  background-image: url("@/assets/github.svg");
+}
+
+a[href*="docs.google.com"]::after {
+  @apply bg-yellow-400;
+  background-image: url("@/assets/doc.svg");
+}
+</style>

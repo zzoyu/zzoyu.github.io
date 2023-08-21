@@ -42,20 +42,26 @@ const projectsWork: Project[] = [
     name: "라이브 커머스 방송 시청 플레이어 FrontEnd",
     stacks: ["Vue 3"],
     descriptions: [
-      "웹소켓 실시간 데이터 통신 및 API 비동기 통신",
+      "웹소켓 실시간 데이터 통신 및 API 비동기 통신 구현",
       "HLS.js 기반 실시간 스트리밍 플레이어",
       "벡터 기반 Lottie 애니메이션 적용",
       "카카오톡 커스텀 공유",
       "가상 PIP 기능을 구현하여, 자연스러운 페이지 이동 및 통계 수집 등 상품-플레이어 상호작용",
+      "실시간 경매 기능 구현",
     ],
   },
   {
     name: "라이브 커머스 방송 관리 백오피스 FrontEnd",
     stacks: ["Nuxt 2"],
+    assets: [
+      "/projects/nalbang_backoffice/1.png",
+      "/projects/nalbang_backoffice/2.png",
+    ],
     descriptions: [
       "웹소켓 실시간 데이터 통신 및 API 비동기 통신",
       "각종 UI 컴포넌트 체계 구현",
       "집계 그래프(D3.js, Canvas) 및 엑셀 등 통계용 기능 구현",
+      "방송 공유 웹 컴포넌트 개발, CSR 템플릿 엔진 구현",
     ],
   },
   {
@@ -77,10 +83,9 @@ const projectsPersonal: Project[] = [
       "https://github.com/zzoyu/vue-pixel-editor",
     ],
     descriptions: [
-      "Canvas 기반 그림판",
-      "레트로 풍 픽셀 아트를 그리기 위한 도구",
-      "색상 팔레트 기능 제공",
-      "지우개, 연필, 직선, 직사각형, 원, 채우기 기능",
+      "Canvas 기반 그림판, 레트로 풍 픽셀 아트를 그리기 위한 도구",
+      "다양한 색상 팔레트 제공",
+      "지우개, 연필, 직선, 직사각형, 원, 채우기(BFS) 기능 구현",
       "레이어 기능 지원(우선순위 변경, 가시성 변경, 삭제, 잠금)",
     ],
   },
@@ -92,8 +97,9 @@ const projectsPersonal: Project[] = [
       "https://github.com/zzoyu/vue-drum-pad",
     ],
     descriptions: [
-      "WebAudio API 기반, 비트를 만들 수 있는 웹 앱",
+      "WebAudio API 기반, 드럼 비트를 만들 수 있는 웹 앱",
       "클릭 및 키보드 입력 녹화로 편집 가능",
+      "재생 BPM 제어 기능",
       "주소에 비트 정보를 인코딩하여 공유할 수 있는 기능",
     ],
   },
@@ -104,7 +110,7 @@ const projectsPersonal: Project[] = [
       "https://docs.google.com/presentation/d/e/2PACX-1vTNj3BgHcWyBRu_sCsbBOsrZVegW1x-_PIJvLJIMjGkisQqAEHuh2S7EUA/pub?start=false&loop=false&delayms=3000",
     ],
     descriptions: [
-      "비동기 시리얼 통신 기반 블루투스 모듈 제어 및 인터럽트 처리",
+      "비동기 시리얼 통신 기반 블루투스 모듈 제어 및 인터럽트 처리 로직 구현",
       "전용 안드로이드 앱을 통한 기기 제어 및 데이터 수신",
     ],
   },
