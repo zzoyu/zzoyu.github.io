@@ -1,10 +1,19 @@
 <template>
   <div class="flex flex-col gap-10 grow">
     <h1>About me</h1>
-    <h2 class="align-bottom">
-      조유진 <mark>1996.11.02</mark>
-      <!-- <a href="https://www.linkedin.com/in/fe-yjcho/"></a> -->
-    </h2>
+    <div class="flex flex-col gap-2">
+      <h2 class="">조유진 <mark>1996.11.02</mark></h2>
+      <div class="flex gap-4">
+        <a href="https://www.linkedin.com/in/fe-yjcho/" target="_blank"
+          >이력서</a
+        >
+        <a href="https://www.linkedin.com/in/fe-yjcho/" target="_blank"
+          >LinkedIn</a
+        >
+        <a href="https://github.com/zzoyu" target="_blank">GitHub</a>
+      </div>
+    </div>
+
     <ul>
       <li>(구)임베디드, (현)프론트엔드 개발자</li>
       <li>
@@ -19,12 +28,12 @@
       </li>
 
       <li>
-        업무에서는 Vue.js 3, Nuxt.js 3 위주의 프로젝트를 다수 수행하였습니다.
+        업무에서 Vue.js 3, Nuxt.js 3 위주의 프로젝트를 다수 수행하였습니다.
       </li>
-      <li>언어는 TypeScript를 주로 사용하고 있습니다.</li>
+      <li>언어는 TypeScript, JavaScript를 주로 사용하고 있습니다.</li>
       <li>
-        현재는 이커머스 플랫폼 회사의 쇼핑몰 솔루션 개발팀에서 신규 프로젝트를
-        작업하고 있습니다.
+        현재는 이커머스 플랫폼 회사의 쇼핑몰 솔루션 개발팀에서 신규 프로젝트 및
+        유지보수 작업을 맡고 있습니다.
       </li>
     </ul>
 
@@ -87,27 +96,7 @@
 </template>
 
 <style scoped>
-a::after {
-  @apply bg-green-300 underline inline-block rounded-full text-center text-white ml-1 w-5 h-5 align-top;
-  @apply hover:opacity-70;
-  content: "";
-  background-size: 1em;
-  background-repeat: no-repeat;
-  background-position: calc(50% + 0px) center;
-}
-
-a[href*="linkedin"]::after {
-  @apply bg-blue-300;
-  background-image: url("@/assets/link.svg");
-}
-
-a[href*="github.com"]::after {
-  @apply bg-gray-400;
-  background-image: url("@/assets/github.svg");
-}
-
-a[href*="docs.google.com"]::after {
-  @apply bg-yellow-400;
-  background-image: url("@/assets/doc.svg");
+a {
+  @apply underline underline-offset-4 text-emerald-400;
 }
 </style>

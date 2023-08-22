@@ -12,7 +12,7 @@ const props = defineProps<{
 
 <template>
   <div v-if="assets" class="mt-2 w-fit h-fit">
-    <div class="inline-grid grid-flow-col-dense gap-1">
+    <div class="grid gap-1 grid-cols-6 grid-flow-row-dense max-sm:grid-cols-4">
       <div
         v-for="(asset, index) in assets"
         @click="
@@ -20,7 +20,7 @@ const props = defineProps<{
           currentIndex = index;
         "
         :key="index"
-        class="max-h-48 w-auto p-1 rounded-md bg-gray-200"
+        class="max-h-36 p-1 rounded-md bg-gray-200 flex justify-center items-center grow-0 w-auto"
       >
         <img v-if="asset.match(/(png|jpg|jpeg|gif|webp)$/)" :src="asset" />
         <video
@@ -80,7 +80,7 @@ const props = defineProps<{
 <style scoped>
 img,
 video {
-  @apply h-full w-auto max-w-full max-h-full object-contain;
+  @apply object-contain h-full w-auto;
 }
 
 .fade-enter-active,

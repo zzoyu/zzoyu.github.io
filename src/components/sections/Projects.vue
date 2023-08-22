@@ -13,7 +13,7 @@ const projectsWork: Project[] = [
     stacks: ["Nuxt 3"],
     descriptions: [
       "SSR 기반 어드민 페이지",
-      "분리된 Storybook 프로젝트를 사용한 디자인 시스템 구축 및 컴포넌트 주도 개발",
+      "분리된 Storybook 프로젝트를 사용한 디자인 시스템 개발 및 컴포넌트 주도 개발 체계 구축",
     ],
     assets: [
       "/projects/new_makeshop_admin/1.png",
@@ -41,6 +41,14 @@ const projectsWork: Project[] = [
   {
     name: "라이브 커머스 방송 시청 플레이어 FrontEnd",
     stacks: ["Vue 3"],
+    assets: [
+      "/projects/nalbang_front/1.png",
+      "/projects/nalbang_front/2.png",
+      "/projects/nalbang_front/3.png",
+      "/projects/nalbang_front/4.png",
+      "/projects/nalbang_front/5.png",
+      "/projects/nalbang_front/6.png",
+    ],
     descriptions: [
       "웹소켓 실시간 데이터 통신 및 API 비동기 통신 구현",
       "HLS.js 기반 실시간 스트리밍 플레이어",
@@ -56,6 +64,7 @@ const projectsWork: Project[] = [
     assets: [
       "/projects/nalbang_backoffice/1.png",
       "/projects/nalbang_backoffice/2.png",
+      "/projects/nalbang_backoffice/3.png",
     ],
     descriptions: [
       "웹소켓 실시간 데이터 통신 및 API 비동기 통신",
@@ -65,11 +74,32 @@ const projectsWork: Project[] = [
     ],
   },
   {
-    name: "지자체 공공 숙박 예약 플랫폼 FrontEnd",
-    stacks: ["Vue 2"],
+    name: "라이브 커머스 시스템 모니터링 백오피스 FrontEnd",
+    stacks: ["Nuxt 2"],
+    assets: [
+      "/projects/nalbang_system/1.png",
+      "/projects/nalbang_system/2.png",
+      "/projects/nalbang_system/3.png",
+      "/projects/nalbang_system/4.png",
+    ],
+    descriptions: [
+      "Vuetify 기반 대시보드 구현, UI/UX 기획 및 개발",
+      "Chart.js 기반 통계 확인 및 집계 그래프 구현",
+    ],
+  },
+  {
+    name: "지자체 공공 숙박 예약 플랫폼 FrontEnd, Android App",
+    stacks: ["Vue 2", "Kotlin Android"],
     descriptions: [
       "라우팅 체계 및 미들웨어 작성",
-      "레이아웃 구현 및 페이지 개발",
+      "레이아웃 구현 및 페이지 컴포넌트 개발",
+      "안드로이드 용 하이브리드 앱 개발, FCM 연동 처리",
+    ],
+    assets: [
+      "/projects/justgo/1.png",
+      "/projects/justgo/2.png",
+      "/projects/justgo/3.png",
+      "/projects/justgo/4.png",
     ],
   },
 ];
