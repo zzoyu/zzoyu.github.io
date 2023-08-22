@@ -5,9 +5,6 @@
       <h2 class="">조유진 <mark>1996.11.02</mark></h2>
       <div class="flex gap-4">
         <a href="https://www.linkedin.com/in/fe-yjcho/" target="_blank"
-          >이력서</a
-        >
-        <a href="https://www.linkedin.com/in/fe-yjcho/" target="_blank"
           >LinkedIn</a
         >
         <a href="https://github.com/zzoyu" target="_blank">GitHub</a>

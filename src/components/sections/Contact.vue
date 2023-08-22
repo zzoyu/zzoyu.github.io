@@ -9,7 +9,6 @@ const currentIndex = inject("currentIndex");
   <div class="flex flex-col gap-10 grow relative">
     <h1>Contact</h1>
     <ul class="list-disc">
-      <li>상세 이력서 파일입니다. <mark>준비중.pdf</mark></li>
       <li>
         이메일로 연락 주실 경우 다음 주소로 연락 부탁드립니다.
         <mark>cho.yj@outlook.com</mark>
