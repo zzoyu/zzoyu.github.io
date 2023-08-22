@@ -12,7 +12,7 @@ const props = defineProps<{
 
 <template>
   <div v-if="assets" class="mt-2 w-fit h-fit">
-    <div class="grid gap-1 grid-cols-6 grid-flow-row-dense max-sm:grid-cols-4">
+    <div class="grid gap-1 grid-cols-4 grid-flow-dense max-sm:grid-cols-4">
       <div
         v-for="(asset, index) in assets"
         @click="
@@ -80,7 +80,7 @@ const props = defineProps<{
 <style scoped>
 img,
 video {
-  @apply object-contain h-full w-auto;
+  @apply object-contain h-full w-auto relative;
 }
 
 .fade-enter-active,

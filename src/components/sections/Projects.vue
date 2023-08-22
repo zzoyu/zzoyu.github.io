@@ -48,6 +48,7 @@ const projectsWork: Project[] = [
       "/projects/nalbang_front/4.png",
       "/projects/nalbang_front/5.png",
       "/projects/nalbang_front/6.png",
+      "/projects/nalbang_front/7.png",
     ],
     descriptions: [
       "웹소켓 실시간 데이터 통신 및 API 비동기 통신 구현",
