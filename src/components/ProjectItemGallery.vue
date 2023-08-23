@@ -38,7 +38,7 @@ const props = defineProps<{
         >
           <div class="relative h-full w-fit max-w-full">
             <button
-              class="absolute top-2 right-2 text-white text-3xl bg-gray-900 bg-opacity-50 rounded-full w-10 h-10 text-center"
+              class="absolute top-2 right-2 z-50 text-white text-3xl bg-gray-900 bg-opacity-50 rounded-full w-10 h-10 text-center"
               @click.stop="isOpen = false"
             >
               ✕
@@ -46,7 +46,7 @@ const props = defineProps<{
 
             <button
               v-if="currentIndex !== 0"
-              class="absolute top-1/2 left-2 -translate-y-1/2 text-white text-3xl bg-gray-900 bg-opacity-50 rounded-full w-10 h-20 text-center"
+              class="absolute top-1/2 left-2 -translate-y-1/2 z-50 text-white text-3xl bg-gray-900 bg-opacity-50 rounded-full w-10 h-20 text-center"
               @click.stop="currentIndex = currentIndex - 1"
             >
               ←
@@ -54,7 +54,7 @@ const props = defineProps<{
 
             <button
               v-if="currentIndex !== assets.length - 1"
-              class="absolute top-1/2 right-2 -translate-y-1/2 text-white text-3xl bg-gray-900 bg-opacity-50 rounded-full w-10 h-20 text-center"
+              class="absolute top-1/2 right-2 -translate-y-1/2 z-50 text-white text-3xl bg-gray-900 bg-opacity-50 rounded-full w-10 h-20 text-center"
               @click.stop="currentIndex = currentIndex + 1"
             >
               →
