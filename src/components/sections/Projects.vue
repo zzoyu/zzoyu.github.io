@@ -135,6 +135,18 @@ const projectsPersonal: Project[] = [
     ],
   },
   {
+    name: "지뢰 찾기",
+    stacks: ["Vue 3"],
+    links: [
+      "https://zzoyu.github.io/minesweeper/",
+      "https://github.com/zzoyu/minesweeper",
+    ],
+    descriptions: [
+      "Vue 3 기반 지뢰 찾기 게임 구현",
+      "DFS를 활용한 맵 넓히기, 피셔-예이츠 셔플을 활용한 지뢰 배치 등 알고리즘 구현",
+    ],
+  },
+  {
     name: "무선 다관절 탐사 로봇",
     stacks: ["C", "Java Android"],
     links: [
