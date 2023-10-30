@@ -8,19 +8,23 @@ const currentIndex = ref(0);
 const props = defineProps<{
   assets: Project["assets"];
 }>();
+
+const thumbnailAssets = props.assets?.map((asset) =>
+  asset.replace(/(.(png|jpg|jpeg|gif|webp))$/, "-min$1")
+);
 </script>
 
 <template>
   <div v-if="assets" class="mt-2 w-fit h-fit">
     <div class="grid gap-1 grid-cols-4 grid-flow-dense max-sm:grid-cols-4">
       <div
-        v-for="(asset, index) in assets"
+        v-for="(asset, index) in thumbnailAssets"
         @click="
           isOpen = !isOpen;
           currentIndex = index;
         "
         :key="index"
-        class="max-h-36 p-1 rounded-md bg-gray-200 flex justify-center items-center grow-0 w-auto"
+        class="max-h-36 p-1 rounded-md bg-gray-200 flex justify-center items-center grow-0 w-40"
       >
         <img v-if="asset.match(/(png|jpg|jpeg|gif|webp)$/)" :src="asset" />
         <video
