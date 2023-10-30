@@ -24,7 +24,7 @@ const thumbnailAssets = props.assets?.map((asset) =>
           currentIndex = index;
         "
         :key="index"
-        class="max-h-36 p-1 rounded-md bg-gray-200 flex justify-center items-center grow-0 w-40"
+        class="max-h-36 p-1 rounded-md bg-gray-200 flex justify-center items-center grow-0"
       >
         <img v-if="asset.match(/(png|jpg|jpeg|gif|webp)$/)" :src="asset" />
         <video
