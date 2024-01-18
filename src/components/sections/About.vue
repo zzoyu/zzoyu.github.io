@@ -42,6 +42,7 @@
           <li>Nuxt.js <mark>best</mark></li>
           <li>React.js</li>
           <li>Next.js</li>
+					<li>Flutter</li>
           <li>Android(?)</li>
         </ul>
       </li>
@@ -63,6 +64,7 @@
           <li>Kotlin</li>
           <li>PHP</li>
           <li>C/C++</li>
+					<li>Dart</li>
         </ul>
       </li>
 
