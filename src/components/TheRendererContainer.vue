@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { onMounted, ref, watchEffect } from "vue";
+import { onBeforeUnmount, onMounted, ref } from "vue";
 import {
   Scene,
   PerspectiveCamera,
   WebGLRenderer,
-  BoxGeometry,
-  Mesh,
-  MeshBasicMaterial,
   AmbientLight,
   DirectionalLight,
+  Object3D,
 } from "three";
 
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
@@ -27,16 +25,13 @@ const camera = new PerspectiveCamera(
   75,
   window.innerWidth / window.innerHeight,
   0.1,
-  1000
+  1000,
 );
 
-const renderer = new WebGLRenderer({ alpha: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-
 const container = ref<HTMLElement | null>(null);
-
-const geometry = new BoxGeometry(1, 1, 1);
-const material = new MeshBasicMaterial({ color: 0x00ff00 });
+let renderer: WebGLRenderer | null = null;
+let me: Object3D | null = null;
+let animationFrameId: number | null = null;
 
 const ambientLight = new AmbientLight(0xffffff, 2);
 scene.add(ambientLight);
@@ -48,76 +43,119 @@ scene.add(dirLight);
 camera.position.z = 5;
 
 const loader = new GLTFLoader();
-const me = await loader.loadAsync("/me.gltf");
 
-me.scene.scale.set(0.3, 0.3, 0.3);
-me.scene.rotation.y = -2;
-me.scene.position.set(0, -1, 0);
-scene.add(me.scene);
+const isWebGLAvailable = () => {
+  const canvas = document.createElement("canvas");
+  return Boolean(
+    canvas.getContext("webgl2") ||
+      canvas.getContext("webgl") ||
+      canvas.getContext("experimental-webgl"),
+  );
+};
 
 const animate = () => {
-  requestAnimationFrame(animate);
+  animationFrameId = requestAnimationFrame(animate);
+
+  if (!renderer || !me) return;
 
   renderer.render(scene, camera);
 
   switch (props.sceneState) {
     case SceneState.Rolling:
-      me.scene.rotation.y += 0.03;
-      me.scene.rotation.x = Math.sin(Date.now() * 0.002) * 0.1;
+      me.rotation.y += 0.03;
+      me.rotation.x = Math.sin(Date.now() * 0.002) * 0.1;
 
-      me.scene.position.y += (-2 - me.scene.position.y) * 0.1;
-      me.scene.position.x += (0 - me.scene.position.x) * 0.1;
+      me.position.y += (-2 - me.position.y) * 0.1;
+      me.position.x += (0 - me.position.x) * 0.1;
 
-      me.scene.scale.x += (0.3 - me.scene.scale.x) * 0.1;
-      me.scene.scale.y += (0.3 - me.scene.scale.y) * 0.1;
-      me.scene.scale.z += (0.3 - me.scene.scale.z) * 0.1;
+      me.scale.x += (0.3 - me.scale.x) * 0.1;
+      me.scale.y += (0.3 - me.scale.y) * 0.1;
+      me.scale.z += (0.3 - me.scale.z) * 0.1;
       break;
     case SceneState.StopMoving:
       // tween model to corner and stop rotating
-      me.scene.rotation.y += (-2 - me.scene.rotation.y) * 0.1;
-      me.scene.rotation.x += (0 - me.scene.rotation.x) * 0.1;
+      me.rotation.y += (-2 - me.rotation.y) * 0.1;
+      me.rotation.x += (0 - me.rotation.x) * 0.1;
 
-      me.scene.position.y += (-2 - me.scene.position.y) * 0.1;
-      me.scene.position.x +=
-        (2 - me.scene.position.x + Math.sin(Date.now() * 0.002) * 0.5) * 0.1;
+      me.position.y += (-2 - me.position.y) * 0.1;
+      me.position.x +=
+        (2 - me.position.x + Math.sin(Date.now() * 0.002) * 0.5) * 0.1;
 
-      me.scene.scale.x += (0.2 - me.scene.scale.x) * 0.1;
-      me.scene.scale.y += (0.2 - me.scene.scale.y) * 0.1;
-      me.scene.scale.z += (0.2 - me.scene.scale.z) * 0.1;
+      me.scale.x += (0.2 - me.scale.x) * 0.1;
+      me.scale.y += (0.2 - me.scale.y) * 0.1;
+      me.scale.z += (0.2 - me.scale.z) * 0.1;
       break;
 
     case SceneState.Hopping:
-      me.scene.rotation.y += (-2 - me.scene.rotation.y) * 0.1;
-      me.scene.rotation.x = Math.sin(Date.now() * 0.002) * 0.1;
-      me.scene.position.y += (-2 - me.scene.position.y) * 0.1;
-      me.scene.position.x += (1 - me.scene.position.x) * 0.1;
+      me.rotation.y += (-2 - me.rotation.y) * 0.1;
+      me.rotation.x = Math.sin(Date.now() * 0.002) * 0.1;
+      me.position.y += (-2 - me.position.y) * 0.1;
+      me.position.x += (1 - me.position.x) * 0.1;
 
-      me.scene.scale.x += (0.3 - me.scene.scale.x) * 0.1;
-      me.scene.scale.y += (0.3 - me.scene.scale.y) * 0.1;
-      me.scene.scale.z += (0.3 - me.scene.scale.z) * 0.1;
+      me.scale.x += (0.3 - me.scale.x) * 0.1;
+      me.scale.y += (0.3 - me.scale.y) * 0.1;
+      me.scale.z += (0.3 - me.scale.z) * 0.1;
 
       break;
   }
 };
 
+const handleResize = () => {
+  if (!renderer) return;
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+};
+
 onMounted(() => {
-  if (container.value) {
-    container.value.appendChild(renderer.domElement);
-    animate();
+  if (!container.value || !isWebGLAvailable()) {
+    return;
   }
 
-  window.onresize = () => {
+  try {
+    renderer = new WebGLRenderer({
+      alpha: true,
+      antialias: true,
+      powerPreference: "high-performance",
+    });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    // set camera aspect ratio
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-  };
+    container.value.appendChild(renderer.domElement);
+  } catch {
+    renderer = null;
+    return;
+  }
+
+  loader
+    .loadAsync("/me.gltf")
+    .then((model) => {
+      me = model.scene;
+      me.scale.set(0.3, 0.3, 0.3);
+      me.rotation.y = -2;
+      me.position.set(0, -1, 0);
+      scene.add(me);
+      animate();
+    })
+    .catch(() => {
+      me = null;
+    });
+
+  window.addEventListener("resize", handleResize);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", handleResize);
+
+  if (animationFrameId !== null) {
+    cancelAnimationFrame(animationFrameId);
+  }
+
+  renderer?.dispose();
 });
 </script>
 
 <template>
   <div
     ref="container"
-    class="fixed w-full h-full left-0 top-0 -z-10 pointer-events-none"
+    class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10"
   ></div>
 </template>
