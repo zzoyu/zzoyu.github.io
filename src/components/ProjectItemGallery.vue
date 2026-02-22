@@ -10,7 +10,7 @@ const props = defineProps<{
 }>();
 
 const thumbnailAssets = props.assets?.map((asset) =>
-  asset.replace(/(.(png|jpg|jpeg|gif|webp))$/, "-min$1")
+  asset.replace(/(\.(png|jpg|jpeg|gif|webp))$/, "-min$1")
 );
 </script>
 
