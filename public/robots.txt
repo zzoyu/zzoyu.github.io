@@ -1,3 +1,5 @@
 User-agent: *
+Disallow: /
 Allow: /blog/
+
 Sitemap: https://zzoyu.github.io/blog/sitemap.xml
